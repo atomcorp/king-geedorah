@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>King Geedorah</title>
+    <link rel="stylesheet" href="/reset.css" />
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body>
+    <h1>King Geedorah</h1>
+    <div>Help: X = W/E, Y = N/S, Z = Up/Down</div>
+
+    <label>
+      X Spin: <input type="range" id="xSpin" name="xSpin" min="1" max="90" /> Z
+      Spin: <input type="range" id="zSpin" name="zSpin" min="1" max="360" />
+    </label>
+    <div class="wrapper">
+      <div class="view">
+        <div class="figures figures__left">
+          <div class="figure figure__horizontal"></div>
+          <div class="figure figure__horizontal"></div>
+          <div class="figure figure__horizontal"></div>
+          <div class="figure figure__horizontal"></div>
+          <div class="figure figure__horizontal"></div>
+          <div class="figure figure__horizontal"></div>
+        </div>
+        <div class="figures figures__center">
+          <div class="geedorah">
+            <div class="geedorah__body">
+              <div class="geedorah__head1">
+                <div
+                  class="geedorah__headsection geedorah__headsection--one"
+                ></div>
+                <div
+                  class="geedorah__headsection geedorah__headsection--two"
+                ></div>
+                <div
+                  class="geedorah__headsection geedorah__headsection--three"
+                ></div>
+              </div>
+              <div class="geedorah__head2"></div>
+              <div class="geedorah__head3"></div>
+            </div>
+          </div>
+          <div class="figure figure__vertical"></div>
+          <div class="figure figure__vertical"></div>
+          <div class="figure figure__vertical"></div>
+          <div class="figure figure__vertical"></div>
+        </div>
+        <div class="figures figures__right">
+          <div class="figure figure__horizontal"></div>
+          <div class="figure figure__horizontal"></div>
+          <div class="figure figure__horizontal"></div>
+          <div class="figure figure__horizontal"></div>
+          <div class="figure figure__horizontal"></div>
+          <div class="figure figure__horizontal"></div>
+        </div>
+      </div>
+    </div>
+    <script src="/index.js"></script>
+  </body>
+</html>

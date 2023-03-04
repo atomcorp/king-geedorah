@@ -1,0 +1,171 @@
+.wrapper {
+  display: grid;
+  place-content: center;
+  height: 100%;
+}
+
+.view {
+  --view-width: 600px;
+  --gap: 25px;
+  --x-axis: 65deg;
+  --z-axis: 40deg;
+  margin: auto;
+  width: var(--view-width);
+  height: calc(var(--view-width) * 0.66);
+  transform: rotateX(var(--x-axis)) rotateZ(var(--z-axis)) translateZ(-1rem);
+  transform-style: preserve-3d;
+  background-color: white;
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: 1fr 2fr 1fr;
+  will-change: transform;
+}
+
+.figures {
+  /* we need to pass down the transform-style: preserve-3d; to every child that uses it */
+  transform-style: inherit;
+  display: grid;
+  gap: var(--gap);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.figures__center {
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+
+.figure {
+  --width: 100%;
+  --stand-height: 100%;
+  --upright-height: 3rem;
+  transform-style: inherit;
+  height: var(--stand-height);
+  position: relative;
+}
+
+.figure__horizontal {
+  /* display: none; */
+}
+
+.figure::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  top: 0;
+  height: 100%;
+  border: 1px solid red;
+  /* help with anitaliasing, a bit */
+  outline: 1px solid transparent;
+  /* background-color: white; */
+}
+
+.figure__vertical {
+  grid-row: 4 / 7;
+}
+
+.figure__vertical::before {
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.figure::after {
+  content: "Tank";
+  display: grid;
+  place-content: center;
+  border: 1px solid #ff2500;
+  /* help with anitaliasing, a bit */
+  outline: 1px solid transparent;
+
+  height: 100%;
+  background-color: white;
+  transition: transform 400ms;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+}
+
+.figure__vertical::after {
+  transform: rotateZ(-180deg) rotateY(-90deg) translateX(100%);
+  transform-origin: right;
+}
+
+.geedorah {
+  grid-column: 1 / -1;
+  grid-row: 2 / 3;
+  align-self: start;
+  height: 100%;
+  transform-style: inherit;
+}
+
+.figure__geedorah:before {
+  display: none;
+}
+
+.geedorah__body {
+  --geedorah-height: calc(var(--view-width) / 3);
+  transform-style: inherit;
+  border: 1px solid #ff2500;
+  height: 100%;
+  background-color: white;
+  transition: transform 400ms;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: var(--geedorah-height);
+  transform: rotateX(-90deg);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.geedorah__head1 {
+  transform-style: inherit;
+  height: 100px;
+  width: 100%;
+  position: relative;
+  /* background-color: pink; */
+}
+
+.geedorah__headsection {
+  transform-style: inherit;
+  height: 100px;
+  width: 100%;
+  background-color: blue;
+  position: absolute;
+}
+
+.geedorah__headsection--one {
+  transform: translateY(-100%) rotateX(90deg);
+}
+
+.geedorah__headsection--two {
+  transform: translateY(-50%) translateZ(50px);
+}
+
+.geedorah__headsection--three {
+  transform: translateY(0) translateZ(0) rotateX(90deg);
+}
+
+.upright {
+  display: grid;
+  place-content: center;
+  border: 1px solid #ff2500;
+  height: 100%;
+  background-color: red;
+  transition: transform 400ms;
+  transform: rotateX(-90deg)
+    translate3D(
+      0rem,
+      calc(0px - calc(var(--upright-height) / 2)),
+      calc(0px - calc(var(--upright-height) / 2))
+    );
+}
+
+.stand {
+  height: var(--stand-height);
+  border: 1px solid red;
+  background-color: white;
+}
